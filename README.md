@@ -83,6 +83,20 @@ If this doesn't work:
 
 A: Could be caused by a multitude of issues such as beginning the install without wifi, DNS stuff. You can press "refresh packages" in the top bar to clear the lock and retry, or reboot.
 
+## Building
+
+To build KFPM in testing, you can use the command `GOOS=linux GOARCH=arm GOARM=7 go build main.go`.
+
+To build a trimmed binary for production, use (`10MB -> 1MB` reductions);
+
+```
+GOOS=linux GOARCH=arm GOARM=7 CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o KFPM main.go
+~/x-tools/arm-kindlehf-linux-gnueabihf/bin/arm-kindlehf-linux-gnueabihf-strip KFPM
+upx --best --lzma KFPM
+```
+
+(Requires `UPX` on WSL, & ArmHF `koxtoolchain`!)
+
 ## Special Thanks
 
 - [Kurizu](https://ko-fi.com/kurizu), Illusion help & app image
