@@ -32,7 +32,7 @@ KindleForge is a GUI Appstore for Kindles, allowing you to download & install tw
 
 - AdBreak, WinterBreak, or LanguageBreak
 - Latest Universal Hotfix
-- Above or on the 5.12.2.2 firmware (4.1.0 adds Chromebar fixes; Application Errors may show but usually harmless)
+- Above or on the 5.12.2.2 firmware (4.1.0 adds Chromebar fixes; Application Errors fixed with Hotfix 2.3.7+)
 - Both **hard-float and soft-float** kindles should work, but not all packages may support both architectures.
 
 ## Troubleshooting
@@ -83,7 +83,7 @@ If this doesn't work:
 
 A: Could be caused by a multitude of issues such as beginning the install without wifi, DNS stuff. You can press "refresh packages" in the top bar to clear the lock and retry, or reboot.
 
-## Building
+## Building & Contribution
 
 To build KFPM in testing, you can use the command `GOOS=linux GOARCH=arm GOARM=7 go build main.go`.
 
@@ -96,6 +96,8 @@ upx --best --lzma KFPM
 ```
 
 (Requires `UPX` on WSL, & ArmHF `koxtoolchain`!)
+
+KindleForge is licensed under `GPLv3`, with all other KindleTweaks projects (including the KindleForge Repository) being licensed under `CC BY-NC-SA 4.0`.
 
 ## Special Thanks
 
